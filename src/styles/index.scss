@@ -148,6 +148,18 @@ body {
     font-weight: 700;
     padding-bottom: 5px;
   }
+  // &__select {
+  //   display: none;
+  // }
+  // :after {
+  //   content: '';
+  //   height: 40px;
+  //   width: 40px;
+  //   display: block;
+  //   background: #1eb7ee url(https://iev.aero/images/icons/calendar.svg) center
+  //     no-repeat;
+  //   background-size: 70%;
+  // }
 }
 
 .date-picker {
@@ -172,6 +184,15 @@ body {
     border-bottom: 3px solid #1eb7ee;
   }
 }
+
+// .mx-grid-search-item {
+//   .mx-grid-search-input {
+//     width: auto;
+//   }
+// }
+// .react-datepicker__input-container {
+//   display: none;
+// }
 
 .table {
   max-width: 1140px;

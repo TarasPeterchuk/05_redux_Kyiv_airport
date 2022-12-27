@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+// import DatePicker from 'react-datepicker';
 import { connect } from 'react-redux';
 import * as flightsAction from '../flights.actions';
 import * as flightsListSelector from '../flights.selectors';
@@ -11,6 +12,8 @@ class SearchFlightDate extends React.Component {
   //   // this.props.getFlightsList(event.target.value);
   //   this.props.setFilterDateGetFlightsList(event.target.value);
   // };
+
+  // openDatepicker = () => this._calendar.setOpen(true);
 
   render() {
     return (
@@ -29,6 +32,12 @@ class SearchFlightDate extends React.Component {
               this.props.setFilterDateGetFlightsList(event.target.value)
             }
           />
+          {/* <DatePicker ref={(c) => (this._calendar = c)} />
+          <img
+            style={{ height: '40px', width: '40px', backgroundColor: 'black' }}
+            src={'https://iev.aero/images/icons/calendar.svg'}
+            onClick={this.openDatepicker}
+          /> */}
         </div>
         <div className="calendar-container__dates">
           <SearchFlightDateDay

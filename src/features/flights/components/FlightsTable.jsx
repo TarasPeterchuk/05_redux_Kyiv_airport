@@ -13,7 +13,6 @@ const FlightsTable = ({ flights, filterData, getFlightsList, isFetching }) => {
   if (isFetching) {
     return <Spinner />;
   }
-  console.log(flights);
   if (!flights) {
     return <FlightsEmpty />;
   }
