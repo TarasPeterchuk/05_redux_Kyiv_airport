@@ -1,4 +1,4 @@
-import React, { useEffect, useParams } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import Flights from './features/flights/components/Flights';
 import store from './store';

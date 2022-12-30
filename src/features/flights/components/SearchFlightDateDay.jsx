@@ -1,8 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { connect } from 'react-redux';
-import * as flightsAction from '../flights.actions';
-import * as flightsListSelector from '../flights.selectors';
 
 const SearchFlightDateDay = ({ day, dayTitle, setDate, filterDateDay }) => {
   return (

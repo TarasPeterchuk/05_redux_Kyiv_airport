@@ -74,7 +74,6 @@ const mapstate = (state) => {
   };
 };
 const mapDispatch = {
-  // setFilterDate: flightsAction.setFilterDate,
   setFilterDateGetFlightsList: flightsAction.setFilterDateGetFlightsList,
 };
 export default connect(mapstate, mapDispatch)(SearchFlightDate);

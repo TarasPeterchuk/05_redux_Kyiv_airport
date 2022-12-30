@@ -56,7 +56,6 @@ export const getFlightsList = (flightsDate) => {
 export const setFilterDateGetFlightsList = (date) => {
   const thunkAction = function (dispatch) {
     dispatch(setFilterDate(date));
-    console.log(date);
     dispatch(getFlightsList(date));
   };
   return thunkAction;

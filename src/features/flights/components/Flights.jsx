@@ -7,16 +7,13 @@ import * as flightsListSelector from '../flights.selectors';
 
 const Flights = ({ filterData }) => {
   const history = useHistory();
-
   useEffect(() => {
     history.push(
       `${filterData.course}?date=${filterData.date}${
         filterData.filterText ? '&search=' + filterData.filterText : ''
       }`
     );
-    console.log(filterData);
   }, [filterData]);
-
   return (
     <>
       <SearchSection />

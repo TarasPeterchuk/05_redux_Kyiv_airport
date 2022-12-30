@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
-
+import { useLocation } from 'react-router-dom';
 import * as flightsListSelector from '../flights.selectors';
-
 import * as flightsAction from '../flights.actions';
 
 const SearchFlightCourseBtns = ({ filterData, setCource }) => {
