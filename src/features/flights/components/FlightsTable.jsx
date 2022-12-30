@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as flightsAction from '../flights.actions';
 import * as flightsListSelector from '../flights.selectors';
@@ -7,9 +7,6 @@ import Spinner from './Spinner';
 import FlightsEmpty from './FlightsEmpty';
 
 const FlightsTable = ({ flights, filterData, getFlightsList, isFetching }) => {
-  useEffect(() => {
-    getFlightsList(filterData.date);
-  }, []);
   if (isFetching) {
     return <Spinner />;
   }

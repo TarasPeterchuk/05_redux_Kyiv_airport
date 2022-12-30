@@ -12,8 +12,8 @@ const initialState = {
   flightsListData: {},
   filterData: {
     course: 'departure',
-    // date: moment().format('DD-MM-YYYY'),
-    date: moment('11-01-2022', 'DD-MM-YYYY').format('DD-MM-YYYY'),
+    date: moment().format('DD-MM-YYYY'),
+    // date: moment('11-01-2022', 'DD-MM-YYYY').format('DD-MM-YYYY'),
     filterText: '',
   },
   isFetching: false,
