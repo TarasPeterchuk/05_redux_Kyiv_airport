@@ -1,22 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as flightsAction from '../flights.actions';
 import * as flightsListSelector from '../flights.selectors';
 import Flight from './Flight';
 import Spinner from './Spinner';
 import FlightsEmpty from './FlightsEmpty';
 
-const FlightsTable = ({ flights, filterData, getFlightsList, isFetching }) => {
+const FlightsTable = ({ filterData, isFetching, filteredFlights }) => {
   if (isFetching) {
     return <Spinner />;
   }
-  if (!flights) {
+  if (!filteredFlights) {
     return <FlightsEmpty />;
   }
-  if (flights[filterData.course].length === 0) {
+  if (filteredFlights.length === 0) {
     return <FlightsEmpty />;
   }
-
   return (
     <table className="table" cellSpacing="0" cellPadding="0">
       <thead>
@@ -32,23 +30,9 @@ const FlightsTable = ({ flights, filterData, getFlightsList, isFetching }) => {
         </tr>
       </thead>
       <tbody>
-        {flights[filterData.course]
-          .filter(
-            (flight) =>
-              flight.codeShareData[0]['codeShare']
-                .toLowerCase()
-                .includes(filterData.filterText.toLowerCase()) ||
-              (flight['airportToID.city']
-                ? flight['airportToID.city']
-                    .toLowerCase()
-                    .includes(filterData.filterText.toLowerCase())
-                : flight['airportFromID.city']
-                    .toLowerCase()
-                    .includes(filterData.filterText.toLowerCase()))
-          )
-          .map((fligth) => (
-            <Flight key={fligth.ID} flightData={fligth} />
-          ))}
+        {filteredFlights.map((fligth) => (
+          <Flight key={fligth.ID} flightData={fligth} />
+        ))}
       </tbody>
     </table>
   );
@@ -56,14 +40,10 @@ const FlightsTable = ({ flights, filterData, getFlightsList, isFetching }) => {
 
 const mapstate = (state) => {
   return {
-    flights: flightsListSelector.flights(state),
     filterData: flightsListSelector.filterData(state),
     isFetching: flightsListSelector.isFetching(state),
+    filteredFlights: flightsListSelector.filteredFlights(state),
   };
 };
 
-const mapDispatch = {
-  getFlightsList: flightsAction.getFlightsList,
-};
-
-export default connect(mapstate, mapDispatch)(FlightsTable);
+export default connect(mapstate)(FlightsTable);
