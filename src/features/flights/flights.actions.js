@@ -12,7 +12,7 @@ export const showSpinner = () => {
   };
 };
 
-export const flightsListReceived = (flightsListData) => {
+export const flightsListReceived = flightsListData => {
   const action = {
     type: FLIGHTS_LIST_RECEIVED,
     payload: { flightsListData },
@@ -20,7 +20,7 @@ export const flightsListReceived = (flightsListData) => {
   return action;
 };
 
-export const setCource = (course) => {
+export const setCource = course => {
   const action = {
     type: FILTER_COURSE,
     payload: { course },
@@ -28,14 +28,14 @@ export const setCource = (course) => {
   return action;
 };
 
-export const setFilterText = (filterText) => {
+export const setFilterText = filterText => {
   const action = {
     type: FILTER_TEXT,
     payload: { filterText },
   };
   return action;
 };
-export const setFilterDate = (date) => {
+export const setFilterDate = date => {
   const action = {
     type: FILTER_DATE,
     payload: { date },
@@ -43,17 +43,17 @@ export const setFilterDate = (date) => {
   return action;
 };
 
-export const getFlightsList = (flightsDate) => {
+export const getFlightsList = flightsDate => {
   const thunkAction = function (dispatch) {
     dispatch(showSpinner());
-    flightsGateway.fetchFlightsList(flightsDate).then((flightsListData) => {
+    flightsGateway.default(flightsDate).then(flightsListData => {
       return dispatch(flightsListReceived(flightsListData));
     });
   };
   return thunkAction;
 };
 
-export const setFilterDateGetFlightsList = (date) => {
+export const setFilterDateGetFlightsList = date => {
   const thunkAction = function (dispatch) {
     dispatch(setFilterDate(date));
     dispatch(getFlightsList(date));
