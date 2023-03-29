@@ -2,6 +2,8 @@
 
 ### the flight list is available only until February 24, 2022 due to the attack of russia
 
+###### the official API has stopped working, so the functional one is temporarily unavailable
+
 ### [Site link](https://dulcet-lamington-4ec50f.netlify.app/)
 
 `package.json` contains all modules are needed<br>
