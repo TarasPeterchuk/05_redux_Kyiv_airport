@@ -1,7 +1,5 @@
 # Project: Airport board
 
-### :exclamation: the official API has stopped working, so the functional is temporarily unavailable
-
 ### the flight list is available only until February 24, 2022 due to the attack of russia
 
 ### [Site link](https://dulcet-lamington-4ec50f.netlify.app/)
