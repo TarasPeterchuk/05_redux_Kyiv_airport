@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SearchSection from './SearchSection';
-import FlightsTable from './FlightsTable';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import SearchSection from './SearchSection';
+import FlightsTable from './FlightsTable';
 import * as flightsListSelector from '../flights.selectors';
 
 const Flights = ({ filterData }) => {
@@ -10,8 +10,8 @@ const Flights = ({ filterData }) => {
   useEffect(() => {
     history.push(
       `${filterData.course}?date=${filterData.date}${
-        filterData.filterText ? '&search=' + filterData.filterText : ''
-      }`
+        filterData.filterText ? `&search=${filterData.filterText}` : ''
+      }`,
     );
   }, [filterData]);
   return (
@@ -22,10 +22,8 @@ const Flights = ({ filterData }) => {
   );
 };
 
-const mapstate = (state) => {
-  return {
-    filterData: flightsListSelector.filterData(state),
-  };
-};
+const mapstate = state => ({
+  filterData: flightsListSelector.filterData(state),
+});
 
 export default connect(mapstate)(Flights);

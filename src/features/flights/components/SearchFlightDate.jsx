@@ -1,27 +1,25 @@
 import React, { useEffect } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import * as flightsAction from '../flights.actions';
 import * as flightsListSelector from '../flights.selectors';
 import SearchFlightDateDay from './SearchFlightDateDay';
-import { useLocation } from 'react-router-dom';
 
 const SearchFlightDate = ({ filterData, setFilterDateGetFlightsList }) => {
-  let { search } = useLocation();
+  const { search } = useLocation();
+
   const splitDate =
     search.indexOf('?date=') !== -1
       ? search.substr(search.indexOf('?date=') + 6, 10)
       : moment().format('DD-MM-YYYY');
 
   useEffect(() => {
+    console.log(splitDate, filterData.date);
     if (splitDate !== filterData.date) {
-      setFilterDateGetFlightsList(
-        moment(splitDate, 'DD-MM-YYYY').format('YYYY-MM-DD')
-      );
+      setFilterDateGetFlightsList(moment(splitDate, 'DD-MM-YYYY').format('YYYY-MM-DD'));
     } else {
-      setFilterDateGetFlightsList(
-        moment(filterData.date, 'DD-MM-YYYY').format('YYYY-MM-DD')
-      );
+      setFilterDateGetFlightsList(moment(filterData.date, 'DD-MM-YYYY').format('YYYY-MM-DD'));
     }
   }, []);
 
@@ -35,7 +33,7 @@ const SearchFlightDate = ({ filterData, setFilterDateGetFlightsList }) => {
           className="calendar__select"
           type="date"
           value={moment(filterData.date, 'DD-MM-YYYY').format('YYYY-MM-DD')}
-          onChange={(event) => setFilterDateGetFlightsList(event.target.value)}
+          onChange={event => setFilterDateGetFlightsList(event.target.value)}
         />
         {/* <DatePicker ref={(c) => (this._calendar = c)} />
           <img
@@ -68,7 +66,7 @@ const SearchFlightDate = ({ filterData, setFilterDateGetFlightsList }) => {
   );
 };
 
-const mapstate = (state) => {
+const mapstate = state => {
   return {
     filterData: flightsListSelector.filterData(state),
   };
