@@ -15,7 +15,6 @@ const SearchFlightDate = ({ filterData, setFilterDateGetFlightsList }) => {
       : moment().format('DD-MM-YYYY');
 
   useEffect(() => {
-    console.log(splitDate, filterData.date);
     if (splitDate !== filterData.date) {
       setFilterDateGetFlightsList(moment(splitDate, 'DD-MM-YYYY').format('YYYY-MM-DD'));
     } else {
