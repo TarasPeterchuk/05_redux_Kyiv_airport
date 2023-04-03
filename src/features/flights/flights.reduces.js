@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   SHOW_SPINNER,
   FLIGHTS_LIST_RECEIVED,
@@ -5,8 +6,6 @@ import {
   FILTER_TEXT,
   FILTER_DATE,
 } from './flights.actions';
-
-import moment from 'moment';
 
 const initialState = {
   flightsListData: {},

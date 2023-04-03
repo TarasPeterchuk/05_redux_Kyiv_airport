@@ -4,7 +4,6 @@
 
 html {
   font-family: 'Open Sans', sans-serif;
-  // line-height: 1.15;
 }
 body {
   background-color: #e7efec;
@@ -148,18 +147,24 @@ body {
     font-weight: 700;
     padding-bottom: 5px;
   }
-  // &__select {
-  //   display: none;
-  // }
-  // :after {
-  //   content: '';
-  //   height: 40px;
-  //   width: 40px;
-  //   display: block;
-  //   background: #1eb7ee url(https://iev.aero/images/icons/calendar.svg) center
-  //     no-repeat;
-  //   background-size: 70%;
-  // }
+
+  &__select {
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #1eb7ee;
+    background-image: url('https://raw.githubusercontent.com/rick-jackson/airport-board/dfeaf8e94a65944df9b0db76226dac50e3b53e91/src/components/toggleDate/icon/Untitled.svg');
+    background-repeat: no-repeat;
+    background-position: 44% 47%;
+    background-size: 120px 120px;
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
 }
 
 .date-picker {

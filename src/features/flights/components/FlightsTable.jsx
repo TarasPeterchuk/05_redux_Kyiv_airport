@@ -21,16 +21,14 @@ const FlightsTable = ({ filterData, isFetching, filteredFlights }) => {
         <tr>
           <th>Термінал</th>
           <th>Розклад</th>
-          <th>
-            {filterData.course === 'departure' ? 'Напрямок' : '	Прилітає з'}
-          </th>
+          <th>{filterData.course === 'departure' ? 'Напрямок' : '	Прилітає з'}</th>
           <th>Статус</th>
           <th>Авіакомпанія</th>
           <th>Рейс</th>
         </tr>
       </thead>
       <tbody>
-        {filteredFlights.map((fligth) => (
+        {filteredFlights.map(fligth => (
           <Flight key={fligth.ID} flightData={fligth} />
         ))}
       </tbody>
@@ -38,7 +36,7 @@ const FlightsTable = ({ filterData, isFetching, filteredFlights }) => {
   );
 };
 
-const mapstate = (state) => {
+const mapstate = state => {
   return {
     filterData: flightsListSelector.filterData(state),
     isFetching: flightsListSelector.isFetching(state),

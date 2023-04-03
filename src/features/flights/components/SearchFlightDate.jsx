@@ -34,12 +34,6 @@ const SearchFlightDate = ({ filterData, setFilterDateGetFlightsList }) => {
           value={moment(filterData.date, 'DD-MM-YYYY').format('YYYY-MM-DD')}
           onChange={event => setFilterDateGetFlightsList(event.target.value)}
         />
-        {/* <DatePicker ref={(c) => (this._calendar = c)} />
-          <img
-            style={{ height: '40px', width: '40px', backgroundColor: 'black' }}
-            src={'https://iev.aero/images/icons/calendar.svg'}
-            onClick={this.openDatepicker}
-          /> */}
       </div>
       <div className="calendar-container__dates">
         <SearchFlightDateDay
